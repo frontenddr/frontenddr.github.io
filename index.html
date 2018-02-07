@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BTC2QW</title>
+	<link rel="stylesheet" href="stylesheets/main.css">
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="header-left col-xl-4 col-lg-12 d-flex flex-row align-items-center flex-lg-column flex-xl-row flex-md-column flex-sm-column flex-column">
+					<div class="header-logo">
+						<a class="logo-text">BTC2Qiwi</a>
+					</div>
+					<p class="header-logo-text">Автоматический обмен 24/7</p>
+				</div>
+				<div class="header-right col-xl-8 col-lg-12">
+					<div class="header-menu ">
+						<div class="icon">
+							<a href="javascript: void(0);" style="font-size: 20px;">&#9776;</a>
+						</div>
+						<ul class="header-menu-ul d-md-flex justify-content-between align-items-center flex-xl-row flex-lg-row flex-md-row flex-sm-column" id="d">
+							<li>
+								<a href="#" class="active">Главная</a>
+							</li>
+							<li>
+								<a href="#">Как работает</a>
+							</li>
+							<li>
+								<a href="#">Безопасность</a>
+							</li>
+							<li>
+								<a href="#">О нас</a>
+							</li>
+							<li>
+								<a href="#">Партнерам</a>
+							</li>
+							<li>
+								<a href="#">Контакты</a>
+							</li>
+							<li class="translate">
+								<a href="#" class="translate-lang">Ru</a>
+								<i class="fas fa-chevron-down"></i>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="wrapper clearfix">
+			<div class="content ">
+				<div class="calculator ">
+					<div class="change-wrapper">
+						<div class="switch-button">
+							<div class="b-to-q">
+								<a href="#" class="active" id="b-to">Обменять <strong>Bitcoin</strong> на <strong>qiwi</strong></a>
+							</div>
+							<div class="q-to-b">
+								<a href="#" id="q-to">Обменять <strong>qiwi</strong> на <strong>Bitcoin</strong></a>
+							</div>
+						</div>
+						<div class="rate">
+							<p class="change-rate">Курс обмена</p>
+							<h2>45500 руб = 1 btc</h2>
+						</div>
+					</div>
+					<div class="main-calc">
+						<div class="main-calc-wrapper ">
+							<div class="calc-changing ">
+								<div class="give-qiwi">
+									<div class="calc-button-label">
+										<div class="calc-label-left">
+											<p>Отдаю Qiwi-рубли</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+										<div class="calc-label-right">
+											<p class="range">От 300 до 60 000</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+									</div>
+									<form  id="info-button">
+										<input type="text" class="input-area" id="qiwi-input" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
+									</form>
+								</div>
+								<div class="button">
+										<img src="img/4-layers.svg" alt="" id="change-arrows">
+								</div>
+								<div class="take-btc">
+									<div class="calc-button-label">
+										<div class="calc-label-left">
+											<p>Получаю Bitcoin BTC</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+										<div class="calc-label">
+											<p class="reserve">Резерв: 134,5 (1 000 000 RUB)</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+									</div>	
+									<form  id="info-button">
+										<input type="text" class="input-area" id="btc-input" placeholder="10,12" form="info-button" maxlength="3" pattern="\d+(,\d{2})?" required>
+									</form>
+								</div>
+							</div>
+							<div class="calc-info">
+								<div class="qiwi-number">
+									<div class="calc-button-label">
+										<div class="calc-label">
+											<p>Укажите Qiwi-кошелек</p>
+										</div>
+									</div>
+									<form  id="info-button">
+										<input type="text" class="input-area" id="qiwi-number-input" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
+									</form>
+								</div>
+								<div class="btc-link">
+									<div class="calc-button-label">
+										<div class="calc-label">
+											<p>Укажите адрес Bitcoin*</p>
+										</div>
+									</div>	
+									<form id="info-button">
+										<input type="text" id="btc-link-input" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8gwgkGha" form="info-button" pattern="^[a-zA-Z]+$" required>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="change-button-section">
+							<p>Нажимая, вы вызываете необратимую реакцию, </p>
+							<p class="agreement">Соглашение</p>
+							<a href="#" id="change-button">Обменять</a>
+						</div>
+					</div>
+					<div class="not-required-area">
+						<p>* Необязательное поле</p>
+					</div>
+				</div>	
+				<div class="call-to-action">
+					<div class="video">
+						<div class="thumb-wrap">
+							<iframe src="https://www.youtube.com/embed/Tk338VXcb24" allowfullscreen></iframe>
+						</div> 
+					</div>
+					<div class="cta-content">
+						<div class="cta-content-wrapper">
+							<h2 class="tittle">Покупайте биткойны через нашего бота в Telegram</h2>
+							<p class="bot-link">@BTC2KIWIBOT</p>
+							<p class="cta-context">
+								Биткойны могут использоваться для обмена на товары или услуги у продавцов, которые согласны их принимать.
+								Обмен на обычные валюты происходит через онлайн-сервис обмена цифровых валют, другие платёжные системы или обменные пункты.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="questions">
+				<div class="questions-inner">
+					<div class="search-tittle">
+						Проверка заявки по номеру
+					</div>
+					<div class="search-section">
+						<form action="#">
+							<input type="text" placeholder="Номер заявки">	
+						</form>
+					</div>
+					<div class="regular-questions">
+						<p class="regular-questions-tittle">Частые вопросы</p>
+						<a href="#" class="see-all">См. все</a>
+					</div>
+					<div class="question">
+						Как происходит обмен?
+					</div>
+					<div class="answer">
+						Биткойны могут использоваться для обмена на товары или услуги у продавцов, которые согласны их принимать. 
+						Обмен на обычные валюты происходит через онлайн-сервис обмена цифровых валют, другие платёжные системы или обменные пункты.
+					</div>
+					<div class="question">
+						Это быстро?
+					</div>
+					<div class="answer">
+						Обмен на обычные валюты происходит через онлайн-сервис обмена цифровых валют, другие платёжные системы или обменные пункты.
+					</div>
+					<div class="question">
+						Как происходит обмен?
+					</div>
+					<div class="answer" id="last-answer">
+						Биткойны могут использоваться для обмена на товары или услуги у продавцов, которые согласны их принимать. 
+						Обмен на обычные валюты происходит через онлайн-сервис обмена цифровых валют, другие платёжные системы или обменные пункты.
+					</div>
+					<div class="chat">
+						<div class="chat-icon">
+							<img src="img/think.png" alt="">
+						</div>
+						<p class="chat-label">Онлайн-чат</p>
+					</div>
+					<div class="ticket-system">
+						<div class="ticket-icon">
+							<img src="img/rectangle.png" alt="">
+						</div>
+						<p class="ticket-label">Тикет-система</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="footer-wrapper">
+			<div class="footer-rights">
+				<div class="footer-rights-wrapper">
+					<h2 class="footer-rights-logo">BTC2Qiwi</h2>
+					<p>2017. Все права сохранены</p>
+				</div>
+			</div>
+			<div class="footer-icons">
+				<img src="img/bitcoin-footer.png" alt="" id="footer-btc">
+				<img src="img/qiwi-footer.png" alt="" id="footer-qiwi">
+			</div>
+			<div class="footer-menu">
+				<ul class="footer-ul">
+					<li><a href="#">Как работает</a></li>
+					<li><a href="#">Безопасность</a></li>
+					<li><a href="#">О нас</a></li>
+					<li><a href="#">Партнёрам</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<script src="js/menu.js"></script>
+
+	<script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
