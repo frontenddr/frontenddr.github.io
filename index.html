@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,45 +8,45 @@
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 </head>
 <body>
 	<header>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="header-left col-xl-4 col-lg-12 d-flex flex-row align-items-center flex-lg-column flex-xl-row flex-md-column flex-sm-column flex-column">
+				<div class="menu-check-wrap col-2">
+					<label for="burger-shower" class="icon"><i class="fas fa-bars"></i></label>
+				</div>
+				<div class="header-left col-xl-4 col-lg-12 col-md-12 col-sm-8 col-8 d-flex flex-row align-items-center flex-lg-column flex-xl-row flex-md-column flex-sm-column flex-column">
 					<div class="header-logo">
 						<a class="logo-text">BTC2Qiwi</a>
 					</div>
 					<p class="header-logo-text">Автоматический обмен 24/7</p>
 				</div>
 				<div class="header-right col-xl-8 col-lg-12">
-					<div class="header-menu ">
-						<div class="icon">
-							<a href="javascript: void(0);" style="font-size: 20px;">&#9776;</a>
-						</div>
-						<ul class="header-menu-ul d-md-flex justify-content-between align-items-center flex-xl-row flex-lg-row flex-md-row flex-sm-column" id="d">
+					<div class="header-menu">
+						<input type="checkbox" id="burger-shower" class="burger-shower">
+						<ul class="header-menu-ul d-md-flex justify-content-between flex-xl-row flex-lg-row flex-md-row flex-sm-column" id="d">
 							<li>
-								<a href="#" class="active">Главная</a>
+								<a href="#" class="header-menu-li">Главная</a>
 							</li>
-							<li>
+							<li class="header-menu-li">
 								<a href="#">Как работает</a>
 							</li>
-							<li>
+							<li class="header-menu-li">
 								<a href="#">Безопасность</a>
 							</li>
-							<li>
+							<li class="header-menu-li">
 								<a href="#">О нас</a>
 							</li>
-							<li>
+							<li class="header-menu-li">
 								<a href="#">Партнерам</a>
 							</li>
-							<li>
+							<li class="header-menu-li">
 								<a href="#">Контакты</a>
 							</li>
 							<li class="translate">
-								<a href="#" class="translate-lang">Ru</a>
-								<i class="fas fa-chevron-down"></i>
+								<a href="#" class="translate-lang">Ru <i class="fas fa-chevron-down"></i></a>
 							</li>
 						</ul>
 					</div>
@@ -60,12 +60,10 @@
 				<div class="calculator ">
 					<div class="change-wrapper">
 						<div class="switch-button">
-							<div class="b-to-q">
-								<a href="#" class="active" id="b-to">Обменять <strong>Bitcoin</strong> на <strong>qiwi</strong></a>
-							</div>
-							<div class="q-to-b">
-								<a href="#" id="q-to">Обменять <strong>qiwi</strong> на <strong>Bitcoin</strong></a>
-							</div>
+							<input id="tab1" type="radio" name="tabs" checked>
+							<label class="b-to-q" for="tab1">Обменять <strong>Bitcoin</strong> на <strong>qiwi</strong></label>
+							<input id="tab2" type="radio" name="tabs">
+							<label class="q-to-b" for="tab2">Обменять <strong>qiwi</strong> на <strong>Bitcoin</strong></label>
 						</div>
 						<div class="rate">
 							<p class="change-rate">Курс обмена</p>
@@ -87,7 +85,7 @@
 										</div>
 									</div>
 									<form  id="info-button">
-										<input type="text" class="input-area" id="qiwi-input" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
+										<input type="text" class="input-area" id="qiwi-input" name="qiwi" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
 									</form>
 								</div>
 								<div class="button">
@@ -105,7 +103,7 @@
 										</div>
 									</div>	
 									<form  id="info-button">
-										<input type="text" class="input-area" id="btc-input" placeholder="10,12" form="info-button" maxlength="3" pattern="\d+(,\d{2})?" required>
+										<input type="text" class="input-area" id="btc-input" name="bitcoin" placeholder="10,12" form="info-button" pattern="\d+(,\d{2})?" disabled>
 									</form>
 								</div>
 							</div>
@@ -116,8 +114,8 @@
 											<p>Укажите Qiwi-кошелек</p>
 										</div>
 									</div>
-									<form  id="info-button">
-										<input type="text" class="input-area" id="qiwi-number-input" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
+									<form id="info-button">
+										<input type="text" class="input-area" id="qiwi-number-input" name="qiwi-number" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
 									</form>
 								</div>
 								<div class="btc-link">
@@ -127,7 +125,7 @@
 										</div>
 									</div>	
 									<form id="info-button">
-										<input type="text" id="btc-link-input" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8gwgkGha" form="info-button" pattern="^[a-zA-Z]+$" required>
+										<input type="text" class="input-area" id="btc-link-input" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button" pattern="^[a-zA-Z]+$" required>
 									</form>
 								</div>
 							</div>
@@ -144,7 +142,7 @@
 				</div>	
 				<div class="call-to-action">
 					<div class="video">
-						<div class="thumb-wrap">
+						<div class="video-wrap">
 							<iframe src="https://www.youtube.com/embed/Tk338VXcb24" allowfullscreen></iframe>
 						</div> 
 					</div>
@@ -232,8 +230,5 @@
 			</div>
 		</div>
 	</footer>
-	<script src="js/menu.js"></script>
-
-	<script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>

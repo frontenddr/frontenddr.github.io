@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "uni_sans_heavy";
+  src: url("../fonts/uni_sans_heavy.ttf");
+}
+@font-face {
+  font-family: "uni_sans_heavy_italic";
+  src: url("../fonts/uni_sans_heavy_italic.ttf");
+}
+@font-face {
+  font-family: "uni_sans_thin";
+  src: url("../fonts/uni_sans_thin.ttf");
+}
+@font-face {
+  font-family: "uni_sans_thin_italic";
+  src: url("../fonts/uni_sans_thin_italic.ttf");
+}
