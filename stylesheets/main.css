@@ -108,31 +108,6 @@
     max-width: 60% !important;
   }
 }
-@media screen and (max-width: 1440px) {
-  .call-to-action {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .video {
-    width: 100% !important;
-  }
-
-  .cta-content {
-    max-width: 100% !important;
-  }
-
-  .bot-link {
-    margin: 40px 0;
-  }
-}
 @media screen and (max-width: 1200px) {
   .content {
     max-width: 65% !important;
@@ -350,8 +325,8 @@
   }
 
   .call-to-action {
-    margin: 0 !important;
-    width: 100%;
+    margin: auto !important;
+    width: 100% !important;
   }
 
   .calc-button-label {
@@ -497,8 +472,8 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  -ms-flex-line-pack: stretch !important;
+      align-content: stretch !important;
 }
 
 .content {
@@ -562,9 +537,30 @@ header {
   color: #2d6fe8;
 }
 
-.switch-button input:checked + label {
+#tab1:checked ~ .b-to-q {
   background-color: #2d6fe8 !important;
   color: #fff;
+}
+
+#tab2:checked ~ .q-to-b {
+  background-color: #2d6fe8 !important;
+  color: #fff;
+}
+
+#tab1:checked ~ .main-calc-wrapper-changed {
+  display: none;
+}
+
+#tab2:checked ~ .main-calc-wrapper {
+  display: none;
+}
+
+#tab1:checked ~ .main-calc-wrapper {
+  display: block !important;
+}
+
+#tab2:checked ~ .main-calc-wrapper-changed {
+  display: block !important;
 }
 
 .rate h2 {
@@ -639,7 +635,7 @@ header {
   display: inline-block;
 }
 
-.calc-info-icon {
+.calc-icon {
   display: inline-block;
   color: #c0c8ce;
   font-size: 14px;
@@ -652,6 +648,9 @@ header {
 
 #change-arrows {
   margin-bottom: -10px;
+}
+#change-arrows:hover {
+  cursor: pointer;
 }
 
 .input-area {
@@ -732,7 +731,11 @@ header {
 
 .agreement {
   text-decoration: underline;
-  color: #2d6fe8 !important;
+  font-size: 15px !important;
+  color: #2d6fe8;
+}
+.agreement:hover {
+  color: #4883EF;
 }
 
 #change-button {
@@ -741,6 +744,14 @@ header {
   background-color: #2d6fe8;
   color: #fff;
   border-radius: 60px;
+  -webkit-box-shadow: 10px 17px 34px 6px rgba(18, 61, 145, 0.83);
+          box-shadow: 10px 17px 34px 6px rgba(18, 61, 145, 0.83);
+}
+#change-button:hover {
+  background-color: #eff5f9;
+  color: #2d6fe8;
+  border: 4px solid #2d6fe8;
+  padding: 20px 0;
 }
 
 .not-required-area {
@@ -754,15 +765,26 @@ header {
 }
 
 .call-to-action {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-line-pack: stretch !important;
+      align-content: stretch !important;
+  -webkit-box-align: stretch !important;
+      -ms-flex-align: stretch !important;
+          align-items: stretch !important;
+  -ms-flex-item-align: auto !important;
+      align-self: auto !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  margin: auto;
 }
 
 .video {
-  width: 50%;
+  width: 100%;
   float: left;
 }
 
@@ -783,13 +805,18 @@ header {
 }
 
 .cta-content {
-  max-width: 50%;
+  max-width: 100%;
   float: left;
   background-color: #eff5f9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space;
+      -ms-flex-pack: space;
+          justify-content: space;
 }
 .cta-content-wrapper {
   padding: 30px 0;
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -810,6 +837,7 @@ header {
 }
 
 .bot-link {
+  margin: 40px 0;
   font-size: 18px;
   font-weight: 800;
   line-height: 18px;
@@ -837,7 +865,6 @@ header {
   width: 80%;
   margin: auto;
   color: #fff;
-  max-height: 1564px;
 }
 
 .search-tittle {
@@ -887,6 +914,9 @@ header {
   float: right;
   color: #f7931a;
 }
+.see-all:hover {
+  color: #F8AD54;
+}
 
 .question {
   margin: 32px 0 25px;
@@ -923,23 +953,81 @@ header {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin: 0 0 0 21px;
+  margin: 50px 0 0 21px;
   vertical-align: center;
   color: #f7931a;
 }
+.chat-label:hover {
+  cursor: pointer;
+  color: #F8AD54;
+}
+.chat-wrap {
+  margin-top: 20px;
+}
+
+.message {
+  overflow: hidden;
+  background-color: #384956;
+  border: 1px solid #000;
+  border-radius: 10px;
+  color: #f7931a;
+  text-align: center;
+}
+.message input, .message textarea {
+  padding: 10px 15px;
+  margin: 10px 0;
+  width: 92%;
+  resize: none;
+}
+.message p {
+  margin-top: 10px;
+  color: #eff5f9;
+  font-size: 20px;
+}
+
+#chatbox {
+  padding: 0 20px;
+  margin: 10px auto;
+  height: 120px;
+  width: 92%;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.to-ask, .addticket {
+  background-color: #2d6fe8;
+  border: 0;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+.to-ask:hover, .addticket:hover {
+  cursor: pointer;
+}
+.to-ask:focus, .to-ask:hover, .addticket:focus, .addticket:hover {
+  background-color: #fff;
+  border: 3px solid #2d6fe8;
+  color: #2d6fe8;
+  font-weight: 700;
+  outline: none;
+  padding: 7px 13px;
+}
 
 .ticket-system {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 30px;
+  display: block;
+  margin: 30px 0;
 }
 .ticket-system img {
   width: 34px;
   height: 21px;
+}
+.ticket-system-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  padding: 30px 0 40px 0;
 }
 .ticket-label {
   font-size: 13px;
@@ -949,6 +1037,10 @@ header {
   margin-left: 28px;
   color: #f7931a;
   vertical-align: center;
+}
+.ticket-label:hover {
+  cursor: pointer;
+  color: #F8AD54;
 }
 
 /*--======== sidebar--========= */
@@ -1039,5 +1131,4 @@ footer {
 }
 
 /*--========= footer --========= */
-
 /*# sourceMappingURL=main.css.map */

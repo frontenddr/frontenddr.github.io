@@ -71,7 +71,9 @@
 						</div>
 					</div>
 					<div class="main-calc">
-						<div class="main-calc-wrapper ">
+						<form id="exchange-qb">
+						<input type="hidden" name="fort" id="fgiver">
+						<div class="main-calc-wrapper">
 							<div class="calc-changing ">
 								<div class="give-qiwi">
 									<div class="calc-button-label">
@@ -84,12 +86,11 @@
 											<i class="fas fa-info-circle calc-info-icon"></i>
 										</div>
 									</div>
-									<form  id="info-button">
 										<input type="text" class="input-area" id="qiwi-input" name="qiwi" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
-									</form>
 								</div>
 								<div class="button">
-										<img src="img/4-layers.svg" alt="" id="change-arrows">
+									<input id="tab2" type="radio" name="tabs">
+									<label class="arrow-label" for="tab2"><img src="img/4-layers.svg" id="change-arrows"></label>
 								</div>
 								<div class="take-btc">
 									<div class="calc-button-label">
@@ -102,9 +103,7 @@
 											<i class="fas fa-info-circle calc-info-icon"></i>
 										</div>
 									</div>	
-									<form  id="info-button">
-										<input type="text" class="input-area" id="btc-input" name="bitcoin" placeholder="10,12" form="info-button" pattern="\d+(,\d{2})?" disabled>
-									</form>
+										<input type="text" class="input-area" id="btc-input" name="bitcoin" placeholder="10,12" form="info-button" pattern="\d+(,\d{2})?">
 								</div>
 							</div>
 							<div class="calc-info">
@@ -114,25 +113,78 @@
 											<p>Укажите Qiwi-кошелек</p>
 										</div>
 									</div>
-									<form id="info-button">
 										<input type="text" class="input-area" id="qiwi-number-input" name="qiwi-number" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
-									</form>
-								</div>
+									</div>
 								<div class="btc-link">
 									<div class="calc-button-label">
 										<div class="calc-label">
 											<p>Укажите адрес Bitcoin*</p>
 										</div>
 									</div>	
-									<form id="info-button">
-										<input type="text" class="input-area" id="btc-link-input" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button" pattern="^[a-zA-Z]+$" required>
-									</form>
+									<input type="text" class="input-area" id="btc-link-input" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button" pattern="^[a-zA-Z]+$" required>
 								</div>
 							</div>
+						</form>
+						</div>
+
+						<div class="main-calc-wrapper-changed">
+							<form  id="exchange_bq">
+							<input type="hidden" name="fort" id="fgiver">
+							<div class="calc-changing">
+								<div class="give-qiwi">
+									<div class="calc-button-label">
+										<div class="calc-label-left">
+											<p>Отдаю Bitcoin BTC</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+										<div class="calc-label-right">
+											<p class="range">Резерв: 134,5 (1 000 000 RUB)</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+									</div>
+										<input type="text" class="input-area" id="qiwi-input" name="qiwi" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
+								</div>
+								<div class="button">
+									<input id="tab1" type="radio" name="tabs">
+									<label class="arrow-label" for="tab1"><img src="img/4-layers.svg" id="change-arrows"></label>
+								</div>
+								<div class="take-btc">
+									<div class="calc-button-label">
+										<div class="calc-label-left">
+											<p>Получаю Qiwi-рубли</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+										<div class="calc-label">
+											<p class="reserve">От 300 до 60 000</p>
+											<i class="fas fa-info-circle calc-info-icon"></i>
+										</div>
+									</div>	
+									<input type="text" class="input-area" id="btc-input" name="bitcoin" placeholder="10,12" form="info-button" pattern="\d+(,\d{2})?" disabled>
+								</div>
+							</div>
+							<div class="calc-info">
+								<div class="qiwi-number">
+									<div class="calc-button-label">
+										<div class="calc-label">
+											<p>Укажите адрес Bitcoin*</p>
+										</div>
+									</div>
+										<input type="text" class="input-area" id="qiwi-number-input" name="qiwi-number" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
+									</div>
+								<div class="btc-link">
+									<div class="calc-button-label">
+										<div class="calc-label">
+											<p>Укажите адрес Bitcoin*</p>
+										</div>
+									</div>	
+									<input type="text" class="input-area" id="btc-link-input" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button" pattern="^[a-zA-Z]+$" required>
+								</div>
+							</div>
+						</form>
 						</div>
 						<div class="change-button-section">
 							<p>Нажимая, вы вызываете необратимую реакцию, </p>
-							<p class="agreement">Соглашение</p>
+							<a href="#" class="agreement">Соглашение</a>
 							<a href="#" id="change-button">Обменять</a>
 						</div>
 					</div>
@@ -164,9 +216,7 @@
 						Проверка заявки по номеру
 					</div>
 					<div class="search-section">
-						<form action="#">
 							<input type="text" placeholder="Номер заявки">	
-						</form>
 					</div>
 					<div class="regular-questions">
 						<p class="regular-questions-tittle">Частые вопросы</p>
@@ -193,16 +243,38 @@
 						Обмен на обычные валюты происходит через онлайн-сервис обмена цифровых валют, другие платёжные системы или обменные пункты.
 					</div>
 					<div class="chat">
-						<div class="chat-icon">
-							<img src="img/think.png" alt="">
+						<img src="img/think.png" class="">
+						<input class="hide hide-chat" id="hd-1" type="checkbox">
+						<label class="chat-label" for="hd-1">Онлайн-чат</label>
+						<div class="chat-wrap">
+							<form class="message" id="message" method="post">
+								<div class="message-head">
+									<p>Онлайн-чат</p>
+								</div>
+								<div id="chatbox"></div>
+								<input type="text" name="usermsg" id="usermsg" placeholder="Задайте вопрос" class="form-control">
+								<input type="submit" name="to-ask" class="to-ask" value="Спросить">
+							</form>
 						</div>
-						<p class="chat-label">Онлайн-чат</p>
 					</div>
 					<div class="ticket-system">
-						<div class="ticket-icon">
-							<img src="img/rectangle.png" alt="">
+						<img src="img/rectangle.png">
+						<input class="hide hide-ticket" id="hd-2" type="checkbox">
+						<label class="ticket-label" for="hd-2">Тикет-система</label>
+						<div class="ticket-system-wrap">
+							<form method="post" class="message" id="addticket">
+								<div class="message-head">
+									<p>Оставьте заявку</p>
+								</div>
+								<div id="ticketbox">
+									<input type="text" required name="tusername" id="tusername" placeholder="Имя" class="form-control">
+									<input type="text" required name="tusermail" id="tusermail" placeholder="Email" class="form-control">
+									<input type="text" required name="tusersubj" id="tusersubj" placeholder="Тема запроса" class="form-control">
+									<textarea name="tusertext" required id="tusertext" placeholder="Опишите суть проблемы" class="form-control"></textarea>
+									<input class="addticket" name="addticket" type="submit" value="Оставьте заявку">
+								</div>
+							</form>
 						</div>
-						<p class="ticket-label">Тикет-система</p>
 					</div>
 				</div>
 			</div>
