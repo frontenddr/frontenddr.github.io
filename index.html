@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 </head>
 <body>
 	<header>
@@ -31,7 +30,7 @@
 								<a href="#" class="header-menu-li">Главная</a>
 							</li>
 							<li class="header-menu-li">
-								<a href="#">Как работает</a>
+								<a href="#modal">Как работает</a>
 							</li>
 							<li class="header-menu-li">
 								<a href="#">Безопасность</a>
@@ -60,132 +59,142 @@
 				<div class="calculator ">
 					<div class="change-wrapper">
 						<div class="switch-button">
-							<input id="tab1" type="radio" name="tabs" checked>
-							<label class="b-to-q" for="tab1">Обменять <strong>Bitcoin</strong> на <strong>qiwi</strong></label>
-							<input id="tab2" type="radio" name="tabs">
-							<label class="q-to-b" for="tab2">Обменять <strong>qiwi</strong> на <strong>Bitcoin</strong></label>
+							<label class="q-to-b" for="tab1">Обменять <strong>qiwi</strong> на <strong>Bitcoin</strong></label>
+							<label class="b-to-q" for="tab2">Обменять <strong>Bitcoin</strong> на <strong>qiwi</strong></label>
 						</div>
 						<div class="rate">
-							<p class="change-rate">Курс обмена</p>
-							<h2>45500 руб = 1 btc</h2>
+							<p class="change-rate" id="change-rate-id">Курс обмена</p>
+							<h2 id="balance">45500 руб = 1 btc</h2>
 						</div>
 					</div>
 					<div class="main-calc">
-						<form id="exchange-qb">
-						<input type="hidden" name="fort" id="fgiver">
+						<input id="tab1" type="radio" name="tabs" checked>
+						<input id="tab2" type="radio" name="tabs">	
 						<div class="main-calc-wrapper">
-							<div class="calc-changing ">
-								<div class="give-qiwi">
-									<div class="calc-button-label">
-										<div class="calc-label-left">
-											<p>Отдаю Qiwi-рубли</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
+							<form id="exchange-qb" name="exchange-qb">
+								<div class="calc-changing">
+									<div class="give-qiwi">
+										<div class="calc-button-label">
+											<div class="calc-label-left">
+												<p>Отдаю Qiwi-рубли</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в рублях к списанию со счета" id="sumfrom-qb-tooltip-left"></i>
+											</div>
+											<div class="calc-label-right">
+												<p class="range">От 300 до 60 000</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Согласно постановлению #25-34034 от 15.12.2013" id="sumfrom-qb-tooltip-right"></i>
+											</div>
 										</div>
-										<div class="calc-label-right">
-											<p class="range">От 300 до 60 000</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
-										</div>
+										<input type="number" class="input-area" id="qiwi-input-qb" name="qiwi" step="any" min="300" max="60000" autocomplete="off" placeholder="500 000" form="info-button" maxlength="6" required >
+										<span id="sumfrom_qb_er" class="formValidation">Введите сумму от 300 до 60000</span>
 									</div>
-										<input type="text" class="input-area" id="qiwi-input" name="qiwi" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
-								</div>
-								<div class="button">
-									<input id="tab2" type="radio" name="tabs">
-									<label class="arrow-label" for="tab2"><img src="img/4-layers.svg" id="change-arrows"></label>
-								</div>
-								<div class="take-btc">
-									<div class="calc-button-label">
-										<div class="calc-label-left">
-											<p>Получаю Bitcoin BTC</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
-										</div>
-										<div class="calc-label">
-											<p class="reserve">Резерв: 134,5 (1 000 000 RUB)</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
-										</div>
-									</div>	
-										<input type="text" class="input-area" id="btc-input" name="bitcoin" placeholder="10,12" form="info-button" pattern="\d+(,\d{2})?">
-								</div>
-							</div>
-							<div class="calc-info">
-								<div class="qiwi-number">
-									<div class="calc-button-label">
-										<div class="calc-label">
-											<p>Укажите Qiwi-кошелек</p>
-										</div>
+									<div class="button">
+										<input id="tab2" type="radio" name="tabs">
+										<label class="arrow-label" for="tab2"><img src="img/4-layers.svg" class="change-arrows"></label>
 									</div>
-										<input type="text" class="input-area" id="qiwi-number-input" name="qiwi-number" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
+									<div class="take-btc">
+										<div class="calc-button-label">
+											<div class="calc-label-left">
+												<p>Получаю Bitcoin BTC</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в Bitcoin к зачислению на счет" id="sumto-qb-tooltip-left"></i>
+											</div>
+											<div class="calc-label">
+												<p class="reserve">Резерв: 134,5 (1 000 000 RUB)</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Если не хватает резерва, оставьте заявку, и мы подготовим нужную сумму" id="sumto-qb-tooltip-right"></i>
+											</div>
+										</div>	
+										<input type="number" class="input-area" id="btc-input-qb" name="bitcoin" min="1" max="140" step="any" autocomplete="off" placeholder="10,12"  form="info-button">
+										<span id="sumto_qb_er" class="formValidation">Введите сумму от 1 до 140</span>	
 									</div>
-								<div class="btc-link">
-									<div class="calc-button-label">
-										<div class="calc-label">
-											<p>Укажите адрес Bitcoin*</p>
-										</div>
-									</div>	
-									<input type="text" class="input-area" id="btc-link-input" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button" pattern="^[a-zA-Z]+$" required>
 								</div>
-							</div>
-						</form>
+								<div class="calc-info">
+									<div class="qiwi-number">
+										<div class="calc-button-label">
+											<div class="calc-label">
+												<p>Укажите Qiwi-кошелек</p>
+											</div>
+										</div>
+										<input type="tel" class="input-area" id="qiwi-number-input-qb" name="qiwi-number" placeholder="+7" form="info-button" minlength="16" maxlength="16" pattern="+7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+									<span class="formValidation" id="phone_er">Это поле должно содержать телефон в формате +7-123-456-78-99</span>
+									</div>
+									<div class="btc-link">
+										<div class="calc-button-label">
+											<div class="calc-label">
+												<p>Укажите адрес Bitcoin*</p>
+											</div>
+										</div>	
+										<input type="text" class="input-area" id="btc-link-input-qb" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button">
+										<span class="formValidation" id="btcpurse_er">Bitcoin-кошелек, от 27 до 34 цифр и латинских букв</span>
+									</div>
+								</div>
+								<div class="change-button-section">
+									<p>Нажимая, вы вызываете необратимую реакцию, </p>
+									<a href="#" class="agreement" id="qb-agreement">Соглашение</a>
+									<input type="submit" id="submit-1" class="change-button" name="submit-qb" value="Обменять">
+								</div>
+							</form>
 						</div>
-
 						<div class="main-calc-wrapper-changed">
-							<form  id="exchange_bq">
-							<input type="hidden" name="fort" id="fgiver">
-							<div class="calc-changing">
-								<div class="give-qiwi">
-									<div class="calc-button-label">
-										<div class="calc-label-left">
-											<p>Отдаю Bitcoin BTC</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
+							<form  id="exchange_bq" name="exchange-bq">
+								<div class="calc-changing">
+									<div class="give-qiwi">
+										<div class="calc-button-label">
+											<div class="calc-label-left">
+												<p>Отдаю Bitcoin BTC</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в Bitcoin к отправке, которая должна В ТОЧНОСТИ поступить к нам на адрес" id="sumfrom-bq-tooltip-left"></i>
+											</div>
+											<div class="calc-label-right">
+												<p class="range">Резерв: 134,5 (1 000 000 RUB)</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Если не хватает резерва, оставьте заявку, и мы подготовим нужную сумму" id="sumfrom-bq-tooltip-right"></i>
+											</div>
 										</div>
-										<div class="calc-label-right">
-											<p class="range">Резерв: 134,5 (1 000 000 RUB)</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
-										</div>
+										<input type="number" class="input-area" id="btc-input-bq" name="bitcoin" step="any" min="1" max="140" autocomplete="off" placeholder="10,12" form="info-button">
+										<span id="sumfrom_bq_er" class="formValidation">Введите сумму от 1 до 140</span>
 									</div>
-										<input type="text" class="input-area" id="qiwi-input" name="qiwi" placeholder="500 000" form="info-button" maxlength="6" pattern="[0-9]{3}-[0-9]{3}" required>
-								</div>
-								<div class="button">
-									<input id="tab1" type="radio" name="tabs">
-									<label class="arrow-label" for="tab1"><img src="img/4-layers.svg" id="change-arrows"></label>
-								</div>
-								<div class="take-btc">
-									<div class="calc-button-label">
-										<div class="calc-label-left">
-											<p>Получаю Qiwi-рубли</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
-										</div>
-										<div class="calc-label">
-											<p class="reserve">От 300 до 60 000</p>
-											<i class="fas fa-info-circle calc-info-icon"></i>
-										</div>
-									</div>	
-									<input type="text" class="input-area" id="btc-input" name="bitcoin" placeholder="10,12" form="info-button" pattern="\d+(,\d{2})?" disabled>
-								</div>
-							</div>
-							<div class="calc-info">
-								<div class="qiwi-number">
-									<div class="calc-button-label">
-										<div class="calc-label">
-											<p>Укажите адрес Bitcoin*</p>
-										</div>
+									<div class="button">
+										<input id="tab1" type="radio" name="tabs">
+										<label class="arrow-label" for="tab1"><img src="img/4-layers.svg" class="change-arrows"></label>
 									</div>
-										<input type="text" class="input-area" id="qiwi-number-input" name="qiwi-number" placeholder="+7" form="info-button" maxlength="12" pattern="+7-[0-9]{3}-[0-9]{3}" required>
+									<div class="take-btc">
+										<div class="calc-button-label">
+											<div class="calc-label-left">
+												<p>Получаю Qiwi-рубли</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в рублях к зачислению на счет" id="sumto-bq-tooltip-left"></i>
+											</div>
+											<div class="calc-label">
+												<p class="reserve">От 300 до 60 000</p>
+												<i class="fas fa-info-circle calc-info-icon" alt="Ограничения на сумму разового обмена для анонимности." id="sumfrom-bq-tooltip-right"></i>
+											</div>
+										</div>	
+										<input type="number" class="input-area" id="qiwi-input-bq" name="qiwi" step="any" min="300" max="60000" autocomplete="off" placeholder="500 000" form="info-button" maxlength="6" required>
+										<span id="sumto_bq_er" class="formValidation">Введите сумму от 300 до 60000</span>
 									</div>
-								<div class="btc-link">
-									<div class="calc-button-label">
-										<div class="calc-label">
-											<p>Укажите адрес Bitcoin*</p>
-										</div>
-									</div>	
-									<input type="text" class="input-area" id="btc-link-input" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button" pattern="^[a-zA-Z]+$" required>
 								</div>
-							</div>
-						</form>
-						</div>
-						<div class="change-button-section">
-							<p>Нажимая, вы вызываете необратимую реакцию, </p>
-							<a href="#" class="agreement">Соглашение</a>
-							<a href="#" id="change-button">Обменять</a>
+								<div class="calc-info">
+									<div class="qiwi-number">
+										<div class="calc-button-label">
+											<div class="calc-label">
+												<p>Укажите адрес Bitcoin*</p>
+											</div>
+										</div>
+										<input type="text" class="input-area" id="btc-link-input-bq" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button">
+										<span class="formValidation" id="btcpurse2_er">Bitcoin-кошелек, от 27 до 34 цифр и латинских букв</span>
+									</div>
+									<div class="btc-link">
+										<div class="calc-button-label">
+											<div class="calc-label">
+												<p>Укажите Qiwi-кошелек</p>
+											</div>
+										</div>	
+										<input type="tel" class="input-area" id="qiwi-number-input-bq" name="qiwi-number" placeholder="+7" form="info-button" minlength="16" maxlength="16" pattern="7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+										<span class="formValidation" id="phone2_er">Это поле должно содержать телефон в формате +7-123-456-78-99</span>
+									</div>
+								</div>
+								<div class="change-button-section">
+									<p>Нажимая, вы вызываете необратимую реакцию,</p>
+									<a href="#" class="agreement" id="bq-agreement">Соглашение</a>
+									<input type="submit" id="submit-1" class="change-button" name="submit-bq" value="Обменять">
+								</div>
+							</form>
 						</div>
 					</div>
 					<div class="not-required-area">
@@ -216,7 +225,9 @@
 						Проверка заявки по номеру
 					</div>
 					<div class="search-section">
+						<form class="search-order paid" method="post">
 							<input type="text" placeholder="Номер заявки">	
+						</form>	
 					</div>
 					<div class="regular-questions">
 						<p class="regular-questions-tittle">Частые вопросы</p>
@@ -302,5 +313,15 @@
 			</div>
 		</div>
 	</footer>
-</body>
+		<aside class="modal" id="modal">
+			<div class="modal-header clearfix">
+				<h1>Заголовок модального окна</h1>
+				<a href="#" class="modal-close"><i class="fas fa-times" id="modal-close-id"></i></a>
+			</div>
+			<div class="modal-section">
+				<p> Можно предположить, что комплексное число недоказуемо. Огибающая семейства поверхностей отрицательна. </p>
+			</div>
+			<div id="modal-overlay"></div>
+	</aside>
+	</body>
 </html>
