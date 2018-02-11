@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
 				</div>
 				<div class="header-right col-xl-8 col-lg-12">
 					<div class="header-menu">
-						<input type="checkbox" id="burger-shower" class="burger-shower">
+						<input type="checkbox" id="burger-shower" name="burger-shower" class="burger-shower">
 						<ul class="header-menu-ul d-md-flex justify-content-between flex-xl-row flex-lg-row flex-md-row flex-sm-column" id="d">
 							<li>
 								<a href="#" class="header-menu-li">Главная</a>
@@ -74,32 +74,40 @@
 										<div class="calc-button-label">
 											<div class="calc-label-left">
 												<p>Отдаю Qiwi-рубли</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в рублях к списанию со счета" id="sumfrom-qb-tooltip-left"></i>
+												<a title="Сумма в рублях к списанию со счета">
+													<i class="fas fa-info-circle calc-info-icon" id="sumfrom-qb-tooltip-left"></i>
+												</a>
 											</div>
 											<div class="calc-label-right">
 												<p class="range">От 300 до 60 000</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Согласно постановлению #25-34034 от 15.12.2013" id="sumfrom-qb-tooltip-right"></i>
+												<a title="Согласно постановлению #25-34034 от 15.12.2013">
+													<i class="fas fa-info-circle calc-info-icon" id="sumfrom-qb-tooltip-right"></i>
+												</a>
 											</div>
 										</div>
-										<input type="number" class="input-area" id="qiwi-input-qb" name="qiwi" step="any" min="300" max="60000" autocomplete="off" placeholder="500 000" form="info-button" maxlength="6" required >
+										<input type="number" class="input-area" id="qiwi-input-qb" name="qiwi" form="exchange-qb" step="any" min="300" max="60000" autocomplete="off" placeholder="500 000">
 										<span id="sumfrom_qb_er" class="formValidation">Введите сумму от 300 до 60000</span>
 									</div>
 									<div class="button">
 										<input id="tab2" type="radio" name="tabs">
-										<label class="arrow-label" for="tab2"><img src="img/4-layers.svg" class="change-arrows"></label>
+										<label class="arrow-label" for="tab2"><img src="img/4-layers.svg" class="change-arrows" alt="change-arrows"></label>
 									</div>
 									<div class="take-btc">
 										<div class="calc-button-label">
 											<div class="calc-label-left">
 												<p>Получаю Bitcoin BTC</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в Bitcoin к зачислению на счет" id="sumto-qb-tooltip-left"></i>
+												<a title="Сумма в Bitcoin к зачислению на счет">
+													<i class="fas fa-info-circle calc-info-icon" id="sumto-qb-tooltip-left"></i>
+												</a>
 											</div>
 											<div class="calc-label">
 												<p class="reserve">Резерв: 134,5 (1 000 000 RUB)</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Если не хватает резерва, оставьте заявку, и мы подготовим нужную сумму" id="sumto-qb-tooltip-right"></i>
+												<a title="Если не хватает резерва, оставьте заявку, и мы подготовим нужную сумму">
+													<i class="fas fa-info-circle calc-info-icon" id="sumto-qb-tooltip-right"></i>
+												</a>
 											</div>
 										</div>	
-										<input type="number" class="input-area" id="btc-input-qb" name="bitcoin" min="1" max="140" step="any" autocomplete="off" placeholder="10,12"  form="info-button">
+										<input type="number" class="input-area" id="btc-input-qb" name="bitcoin" form="exchange-qb" min="1" max="140" step="any" autocomplete="off" placeholder="10,12">
 										<span id="sumto_qb_er" class="formValidation">Введите сумму от 1 до 140</span>	
 									</div>
 								</div>
@@ -110,8 +118,8 @@
 												<p>Укажите Qiwi-кошелек</p>
 											</div>
 										</div>
-										<input type="tel" class="input-area" id="qiwi-number-input-qb" name="qiwi-number" placeholder="+7" form="info-button" minlength="16" maxlength="16" pattern="+7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
-									<span class="formValidation" id="phone_er">Это поле должно содержать телефон в формате +7-123-456-78-99</span>
+										<input type="tel" class="input-area" id="qiwi-number-input-qb" name="qiwi-number" form="exchange-qb" placeholder="+7" minlength="16" maxlength="16" pattern="[\+][0-9]{10,13}">
+										<span class="formValidation" id="phone_er">Это поле должно содержать телефон в формате +7-123-456-78-99</span>
 									</div>
 									<div class="btc-link">
 										<div class="calc-button-label">
@@ -119,50 +127,58 @@
 												<p>Укажите адрес Bitcoin*</p>
 											</div>
 										</div>	
-										<input type="text" class="input-area" id="btc-link-input-qb" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button">
+										<input type="text" class="input-area" id="btc-link-input-qb" name="btc-link" form="exchange-qb" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8">
 										<span class="formValidation" id="btcpurse_er">Bitcoin-кошелек, от 27 до 34 цифр и латинских букв</span>
 									</div>
 								</div>
 								<div class="change-button-section">
 									<p>Нажимая, вы вызываете необратимую реакцию, </p>
 									<a href="#" class="agreement" id="qb-agreement">Соглашение</a>
-									<input type="submit" id="submit-1" class="change-button" name="submit-qb" value="Обменять">
+									<input type="submit" id="submit-1" class="change-button" name="submit-qb" form="exchange-qb" value="Обменять">
 								</div>
 							</form>
 						</div>
 						<div class="main-calc-wrapper-changed">
-							<form  id="exchange_bq" name="exchange-bq">
+							<form id="exchange_bq" name="exchange-bq">
 								<div class="calc-changing">
 									<div class="give-qiwi">
 										<div class="calc-button-label">
 											<div class="calc-label-left">
 												<p>Отдаю Bitcoin BTC</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в Bitcoin к отправке, которая должна В ТОЧНОСТИ поступить к нам на адрес" id="sumfrom-bq-tooltip-left"></i>
+												<a title="Сумма в Bitcoin к отправке, которая должна В ТОЧНОСТИ поступить к нам на адрес">
+													<i class="fas fa-info-circle calc-info-icon" id="sumfrom-bq-tooltip-left"></i>
+												</a>
 											</div>
 											<div class="calc-label-right">
 												<p class="range">Резерв: 134,5 (1 000 000 RUB)</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Если не хватает резерва, оставьте заявку, и мы подготовим нужную сумму" id="sumfrom-bq-tooltip-right"></i>
+												<a title="Если не хватает резерва, оставьте заявку, и мы подготовим нужную сумму">
+													<i class="fas fa-info-circle calc-info-icon" id="sumfrom-bq-tooltip-right"></i>
+												</a>
 											</div>
 										</div>
-										<input type="number" class="input-area" id="btc-input-bq" name="bitcoin" step="any" min="1" max="140" autocomplete="off" placeholder="10,12" form="info-button">
+										<input type="number" class="input-area" id="btc-input-bq" name="bitcoin" form="exchange_bq" step="any" min="1" max="140" autocomplete="off" placeholder="10,12">
 										<span id="sumfrom_bq_er" class="formValidation">Введите сумму от 1 до 140</span>
 									</div>
 									<div class="button">
 										<input id="tab1" type="radio" name="tabs">
-										<label class="arrow-label" for="tab1"><img src="img/4-layers.svg" class="change-arrows"></label>
+										<label class="arrow-label" for="tab1"><img src="img/4-layers.svg" alt="change-arrows" class="change-arrows"></label>
 									</div>
 									<div class="take-btc">
 										<div class="calc-button-label">
 											<div class="calc-label-left">
 												<p>Получаю Qiwi-рубли</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Сумма в рублях к зачислению на счет" id="sumto-bq-tooltip-left"></i>
+												<a title="Сумма в рублях к зачислению на счет">
+													<i class="fas fa-info-circle calc-info-icon" id="sumto-bq-tooltip-left"></i>
+												</a>
 											</div>
 											<div class="calc-label">
 												<p class="reserve">От 300 до 60 000</p>
-												<i class="fas fa-info-circle calc-info-icon" alt="Ограничения на сумму разового обмена для анонимности." id="sumfrom-bq-tooltip-right"></i>
+												<a title="Ограничения на сумму разового обмена для анонимности.">
+													<i class="fas fa-info-circle calc-info-icon" id="sumto-bq-tooltip-right"></i>
+												</a>
 											</div>
 										</div>	
-										<input type="number" class="input-area" id="qiwi-input-bq" name="qiwi" step="any" min="300" max="60000" autocomplete="off" placeholder="500 000" form="info-button" maxlength="6" required>
+										<input type="number" class="input-area" id="qiwi-input-bq" name="qiwi" form="exchange_bq" step="any" min="300" max="60000" autocomplete="off" placeholder="500 000" >
 										<span id="sumto_bq_er" class="formValidation">Введите сумму от 300 до 60000</span>
 									</div>
 								</div>
@@ -173,7 +189,7 @@
 												<p>Укажите адрес Bitcoin*</p>
 											</div>
 										</div>
-										<input type="text" class="input-area" id="btc-link-input-bq" name="btc-link" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8" form="info-button">
+										<input type="text" class="input-area" id="btc-link-input-bq" name="btc-link" form="exchange_bq" placeholder="DghdkdG844ff64GHn83901gsfldgg8ge8">
 										<span class="formValidation" id="btcpurse2_er">Bitcoin-кошелек, от 27 до 34 цифр и латинских букв</span>
 									</div>
 									<div class="btc-link">
@@ -182,14 +198,14 @@
 												<p>Укажите Qiwi-кошелек</p>
 											</div>
 										</div>	
-										<input type="tel" class="input-area" id="qiwi-number-input-bq" name="qiwi-number" placeholder="+7" form="info-button" minlength="16" maxlength="16" pattern="7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+										<input type="tel" class="input-area" id="qiwi-number-input-bq" name="qiwi-number" form="exchange_bq" placeholder="+7" minlength="16" maxlength="16" pattern="[\+][0-9]{10,13}" >
 										<span class="formValidation" id="phone2_er">Это поле должно содержать телефон в формате +7-123-456-78-99</span>
 									</div>
 								</div>
 								<div class="change-button-section">
 									<p>Нажимая, вы вызываете необратимую реакцию,</p>
 									<a href="#" class="agreement" id="bq-agreement">Соглашение</a>
-									<input type="submit" id="submit-1" class="change-button" name="submit-bq" value="Обменять">
+									<input type="submit" id="submit-2" class="change-button" name="submit-bq" form="exchange_bq" value="Обменять">
 								</div>
 							</form>
 						</div>
@@ -223,7 +239,7 @@
 					</div>
 					<div class="search-section">
 						<form class="search-order paid" method="post">
-							<input type="text" placeholder="Номер заявки">	
+							<input type="text" placeholder="Номер заявки" name="search-order">	
 						</form>	
 					</div>
 					<div class="regular-questions">
@@ -251,8 +267,8 @@
 						Обмен на обычные валюты происходит через онлайн-сервис обмена цифровых валют, другие платёжные системы или обменные пункты.
 					</div>
 					<div class="chat">
-						<img src="img/think.png" class="">
-						<input class="hide hide-chat" id="hd-1" type="checkbox">
+						<img src="img/think.png" class="think" alt="think">
+						<input class="hide hide-chat" id="hd-1" name="hd-1" type="checkbox">
 						<label class="chat-label" for="hd-1">Онлайн-чат</label>
 						<div class="chat-wrap">
 							<form class="message" id="message" method="post">
@@ -260,14 +276,14 @@
 									<p>Онлайн-чат</p>
 								</div>
 								<div id="chatbox"></div>
-								<input type="text" name="usermsg" id="usermsg" placeholder="Задайте вопрос" class="form-control">
-								<input type="submit" name="to-ask" class="to-ask" value="Спросить">
+								<input type="text" name="usermsg" id="usermsg" form="message" placeholder="Задайте вопрос" class="form-control" required>
+								<input type="submit" name="to-ask" class="to-ask" form="message" value="Спросить">
 							</form>
 						</div>
 					</div>
 					<div class="ticket-system">
-						<img src="img/rectangle.png">
-						<input class="hide hide-ticket" id="hd-2" type="checkbox">
+						<img src="img/rectangle.png" class="rectange" alt="rectange">
+						<input class="hide hide-ticket" id="hd-2" name="hd-2" type="checkbox">
 						<label class="ticket-label" for="hd-2">Тикет-система</label>
 						<div class="ticket-system-wrap">
 							<form method="post" class="message" id="addticket">
@@ -275,11 +291,11 @@
 									<p>Оставьте заявку</p>
 								</div>
 								<div id="ticketbox">
-									<input type="text" required name="tusername" id="tusername" placeholder="Имя" class="form-control">
-									<input type="text" required name="tusermail" id="tusermail" placeholder="Email" class="form-control">
-									<input type="text" required name="tusersubj" id="tusersubj" placeholder="Тема запроса" class="form-control">
-									<textarea name="tusertext" required id="tusertext" placeholder="Опишите суть проблемы" class="form-control"></textarea>
-									<input class="addticket" name="addticket" type="submit" value="Оставьте заявку">
+									<input type="text" name="username" id="tusername" placeholder="Имя" form="addticket" class="form-control" required>
+									<input type="text" name="usermail" id="tusermail" placeholder="Email" form="addticket" class="form-control" required>
+									<input type="text" name="usersubj" id="tusersubj" placeholder="Тема запроса" form="addticket" class="form-control" required>
+									<textarea name="tusertext" id="tusertext" placeholder="Опишите суть проблемы" form="addticket" class="form-control" required></textarea>
+									<input class="addticket" name="addticket" type="submit" form="addticket" value="Оставьте заявку">
 								</div>
 							</form>
 						</div>
@@ -297,8 +313,8 @@
 				</div>
 			</div>
 			<div class="footer-icons">
-				<img src="img/bitcoin-footer.png" alt="" id="footer-btc">
-				<img src="img/qiwi-footer.png" alt="" id="footer-qiwi">
+				<img src="img/bitcoin-footer.png" alt="footer-btc" id="footer-btc">
+				<img src="img/qiwi-footer.png" alt="footer-qiwi" id="footer-qiwi">
 			</div>
 			<div class="footer-menu">
 				<ul class="footer-ul">
@@ -324,5 +340,5 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-	</body>
+</body>
 </html>
